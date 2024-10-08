@@ -15,3 +15,11 @@ def rent_car(cars, car_id):
             car["available"] = False
             return f"You have rented the {car['brand']} {car['model']}."
     return "Car is unavailable or invalid car ID."
+
+def return_car(cars, car_id, days):
+    for car in cars:
+        if car["id"] == car_id and car["available"] == False:
+            car["available"] == True
+            price = days * car['rental_price']
+            return f'Thank you for returning the {car["brand"]}!\nYou have used it for {days} and it will cost you {price}'
+        return "Car hasn't been rented. Please check ID."
